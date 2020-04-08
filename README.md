@@ -2,57 +2,42 @@
 
 [![GitHub Build Status](https://github.com/cisagov/cool-dns-dmarc-import/workflows/build/badge.svg)](https://github.com/cisagov/cool-dns-dmarc-import/actions)
 
-This is a generic skeleton project that can be used to quickly get a
-new [cisagov](https://github.com/cisagov) [Terraform
-module](https://www.terraform.io/docs/modules/index.html) GitHub
-repository started.  This skeleton project contains [licensing
-information](LICENSE), as well as [pre-commit
-hooks](https://pre-commit.com) and
-[GitHub Actions](https://github.com/features/actions) configurations
-appropriate for the major languages that we use.
+Terraform code to create the necessary resources to run the
+dmarc-import application in the COOL DNS account.
 
-See [here](https://www.terraform.io/docs/modules/index.html) for more
-details on Terraform modules and the standard module structure.
+## Providers ##
 
-## Usage ##
-
-```hcl
-module "example" {
-  source = "github.com/cisagov/cool-dns-dmarc-import"
-
-  aws_region            = "us-west-1"
-  aws_availability_zone = "b"
-  subnet_id             = "subnet-0123456789abcdef0"
-
-  tags = {
-    Key1 = "Value1"
-    Key2 = "Value2"
-  }
-}
-```
-
-## Examples ##
-
-* [Deploying into the default VPC](https://github.com/cisagov/cool-dns-dmarc-import/tree/develop/examples/default_vpc)
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| aws.dnsprovisionaccount | n/a |
+| aws.organizationsreadonly | n/a |
+| terraform | n/a |
 
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-------:|:--------:|
-| aws_region | The AWS region to deploy into (e.g. us-east-1) | string | | yes |
-| aws_availability_zone | The AWS availability zone to deploy into (e.g. a, b, c, etc.) | string | | yes |
-| subnet_id | The ID of the AWS subnet to deploy into (e.g. subnet-0123456789abcdef0) | string | | yes |
-| tags | Tags to apply to all AWS resources created | map(string) | `{}` | no |
+|------|-------------|------|---------|:-----:|
+| aws_region | The AWS region to communicate with. | `string` | `us-east-1` | no |
+| elasticsearch_domain_name | The domain name of the Elasticsearch instance. | `string` | `dmarc-import-elasticsearch` | no |
+| elasticsearch_index | The Elasticsearch index to which to write DMARC aggregate report data. | `string` | `dmarc_aggregate_reports` | no |
+| elasticsearch_type | The Elasticsearch type corresponding to a DMARC aggregate report. | `string` | `report` | no |
+| emails | A list of the email addresses at which DMARC aggregate reports are being received. | `list(string)` | `[reports@dmarc.cyber.dhs.gov]` | no |
+| lambda_function_name | The name of the dmarc-import Lambda function. | `string` | `dmarc-import` | no |
+| lambda_function_zip_file | The location of the zip file for the Lambda function. | `string` | `../dmarc-import-lambda/dmarc-import.zip` | no |
+| permanent_bucket_name | The name of the S3 bucket where the DMARC aggregate report emails are stored permanently. | `string` | `cool-dmarc-import-permanent` | no |
+| provisiondmarcimport_policy_description | The description to associate with the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. | `string` | `Allows sufficient permissions to provision the dmarc-import infrastructure.` | no |
+| provisiondmarcimport_policy_name | The name to assign the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. | `string` | `ProvisionDmarcImport` | no |
+| queue_name | The name of the SQS queue where events will be sent as DMARC aggregate reports are received. | `string` | `cool-dmarc-import-queue` | no |
+| rule_set_name | The name of the SES rule set that processes DMARC aggregate reports. | `string` | `dmarc-import-rules` | no |
+| tags | Tags to apply to all AWS resources created | `map(string)` | `{Application: COOL - DNS - dmarc-import, Team: VM Fusion - Development, Workspace: production}` | no |
+| temporary_bucket_name | The name of the S3 bucket where the DMARC aggregate report emails are stored temporarily (until processed). | `string` | `cool-dmarc-import-temporary` | no |
 
 ## Outputs ##
 
 | Name | Description |
 |------|-------------|
-| id | The EC2 instance ID |
-| arn | The EC2 instance ARN |
-| availability_zone | The AZ where the EC2 instance is deployed |
-| private_ip | The private IP of the EC2 instance |
-| subnet_id | The ID of the subnet where the EC2 instance is deployed |
+| provisiondmarcimport_policy | IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. |
 
 ## Contributing ##
 
