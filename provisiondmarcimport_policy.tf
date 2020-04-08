@@ -50,6 +50,11 @@ data "aws_iam_policy_document" "provisiondmarcimport" {
   }
   statement {
     actions = [
+      # This permission should apply from the previous block, but for
+      # some reason it doesn't.  The resource does not appear to be
+      # incorrect, but for some reason I can't apply tags unless I add
+      # it here.
+      "es:AddTags",
       "es:CreateElasticsearchServiceRole",
       "es:DeleteElasticsearchServiceRole",
       "es:Describe*",
