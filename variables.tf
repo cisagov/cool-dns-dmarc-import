@@ -4,6 +4,11 @@
 # You must provide a value for each of these parameters.
 # ------------------------------------------------------------------------------
 
+variable "cyhy_account_id" {
+  type        = string
+  description = "The ID of the CyHy account."
+}
+
 # ------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 #
@@ -26,6 +31,30 @@ variable "elasticsearch_index" {
   type        = string
   description = "The Elasticsearch index to which to write DMARC aggregate report data."
   default     = "dmarc_aggregate_reports"
+}
+
+variable "elasticsearchreadonly_role_description" {
+  type        = string
+  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
+  default     = "Allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
+}
+
+variable "elasticsearchreadonly_role_name" {
+  type        = string
+  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read (but not write) the to dmarc-import Elasticsearch database."
+  default     = "ElasticsearchReadOnly"
+}
+
+variable "elasticsearchreadwrite_role_description" {
+  type        = string
+  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read and write to the dmarc-import Elasticsearch database."
+  default     = "Allows sufficient permissions to read and write to the dmarc-import Elasticsearch database."
+}
+
+variable "elasticsearchreadwrite_role_name" {
+  type        = string
+  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read and write the to dmarc-import Elasticsearch database."
+  default     = "ElasticsearchReadWrite"
 }
 
 variable "elasticsearch_type" {

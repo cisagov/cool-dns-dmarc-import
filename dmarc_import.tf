@@ -3,8 +3,7 @@
 #-------------------------------------------------------------------------------
 
 module "dmarc_import" {
-  # source = "github.com/cisagov/dmarc-import-tf-module"
-  source = "../dmarc-import-tf-module"
+  source = "github.com/cisagov/dmarc-import-tf-module"
 
   providers = {
     aws = aws.dnsprovisionaccount
