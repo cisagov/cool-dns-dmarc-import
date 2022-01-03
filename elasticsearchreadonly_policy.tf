@@ -13,6 +13,20 @@ data "aws_iam_policy_document" "elasticsearchreadonly_doc" {
       "${module.dmarc_import.elasticsearch_domain.arn}/*",
     ]
   }
+
+  # This statement allows the deletion of scroll contexts.  These are
+  # expensive resources, so there is an upper limit on the number of
+  # them that can be open at once.  They should be deleted as soon as
+  # possible after use, and their deletion does not actually delete
+  # any data from the database.
+  statement {
+    actions = [
+      "es:ESHttpDelete",
+    ]
+    resources = [
+      "${module.dmarc_import.elasticsearch_domain.arn}/_search/scroll",
+    ]
+  }
 }
 
 resource "aws_iam_policy" "elasticsearchreadonly_policy" {
