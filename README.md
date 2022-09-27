@@ -5,6 +5,11 @@
 Terraform code to create the necessary resources to run the
 dmarc-import application in the COOL DNS account.
 
+## Usage ##
+
+1. Run the command `terraform init`.
+1. Run the command `terraform apply`.
+
 ## Providers ##
 
 | Name | Version |
@@ -39,9 +44,14 @@ dmarc-import application in the COOL DNS account.
 |------|-------------|
 | provisiondmarcimport_policy | IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. |
 
+## Notes ##
+
+Running `pre-commit` requires running `terraform init` in every directory that
+contains Terraform code. In this repository, this is only the main directory.
+
 ## Contributing ##
 
-We welcome contributions!  Please see [here](CONTRIBUTING.md) for
+We welcome contributions!  Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for
 details.
 
 ## License ##

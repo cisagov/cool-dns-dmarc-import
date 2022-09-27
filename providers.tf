@@ -4,6 +4,9 @@
 # Terraform backend.
 provider "aws" {
   region = var.aws_region
+  default_tags {
+    tags = var.tags
+  }
 }
 
 # The provider used to add permissions that allow dmarc-import to be
@@ -15,6 +18,9 @@ provider "aws" {
     role_arn     = data.terraform_remote_state.dns.outputs.provisionaccount_role.arn
     session_name = local.caller_user_name
   }
+  default_tags {
+    tags = var.tags
+  }
 }
 
 # The provider used to lookup account IDs.  See locals.tf.
@@ -24,5 +30,8 @@ provider "aws" {
   assume_role {
     role_arn     = data.terraform_remote_state.master.outputs.organizationsreadonly_role.arn
     session_name = local.caller_user_name
+  }
+  default_tags {
+    tags = var.tags
   }
 }

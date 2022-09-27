@@ -17,7 +17,7 @@ variable "cyhy_account_id" {
 
 variable "aws_region" {
   type        = string
-  description = "The AWS region to communicate with."
+  description = "The AWS region to deploy into (e.g. us-east-1)."
   default     = "us-east-1"
 }
 
@@ -115,7 +115,7 @@ variable "rule_set_name" {
 
 variable "tags" {
   type        = map(string)
-  description = "Tags to apply to all AWS resources created"
+  description = "Tags to apply to all AWS resources created."
   default = {
     Team        = "VM Fusion - Development"
     Application = "COOL - DNS - dmarc-import"
