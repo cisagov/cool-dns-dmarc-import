@@ -33,6 +33,12 @@ variable "elasticsearch_index" {
   default     = "dmarc_aggregate_reports"
 }
 
+variable "elasticsearch_type" {
+  type        = string
+  description = "The Elasticsearch type corresponding to a DMARC aggregate report."
+  default     = "report"
+}
+
 variable "elasticsearchreadonly_role_description" {
   type        = string
   description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
@@ -55,12 +61,6 @@ variable "elasticsearchreadwrite_role_name" {
   type        = string
   description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read and write the to dmarc-import Elasticsearch database."
   default     = "ElasticsearchReadWrite"
-}
-
-variable "elasticsearch_type" {
-  type        = string
-  description = "The Elasticsearch type corresponding to a DMARC aggregate report."
-  default     = "report"
 }
 
 variable "emails" {
