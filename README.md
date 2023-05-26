@@ -71,7 +71,7 @@ dmarc-import application in the COOL DNS account.
 | provisiondmarcimport\_policy\_name | The name to assign the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. | `string` | `"ProvisionDmarcImport"` | no |
 | queue\_name | The name of the SQS queue where events will be sent as DMARC aggregate reports are received. | `string` | `"cool-dmarc-import-queue"` | no |
 | rule\_set\_name | The name of the SES rule set that processes DMARC aggregate reports. | `string` | `"dmarc-import-rules"` | no |
-| tags | Tags to apply to all AWS resources created | `map(string)` | ```{ "Application": "COOL - DNS - dmarc-import", "Team": "VM Fusion - Development", "Workspace": "production" }``` | no |
+| tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | temporary\_bucket\_name | The name of the S3 bucket where the DMARC aggregate report emails are stored temporarily (until processed). | `string` | `"cool-dmarc-import-temporary"` | no |
 
 ## Outputs ##
