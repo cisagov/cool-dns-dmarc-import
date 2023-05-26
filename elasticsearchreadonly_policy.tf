@@ -4,6 +4,17 @@
 # ------------------------------------------------------------------------------
 
 data "aws_iam_policy_document" "elasticsearchreadonly_doc" {
+  # ESHttpDelete is necessary so that scroll contexts can be deleted after
+  # queries are complete.
+  statement {
+    actions = [
+      "es:ESHttpDelete",
+    ]
+    resources = [
+      "${module.dmarc_import.elasticsearch_domain.arn}/_search/scroll",
+    ]
+  }
+
   statement {
     actions = [
       "es:ESHttpGet",
