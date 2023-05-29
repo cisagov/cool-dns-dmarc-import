@@ -4,8 +4,11 @@
 # ------------------------------------------------------------------------------
 
 data "aws_iam_policy_document" "elasticsearchreadonly_doc" {
-  # ESHttpDelete is necessary so that scroll contexts can be deleted after
-  # queries are complete.
+  # This statement allows the deletion of scroll contexts.  These are
+  # expensive resources, so there is an upper limit on the number of
+  # them that can be open at once.  They should be deleted as soon as
+  # possible after use, and their deletion does not actually delete
+  # any data from the database.
   statement {
     actions = [
       "es:ESHttpDelete",
