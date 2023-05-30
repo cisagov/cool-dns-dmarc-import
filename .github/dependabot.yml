@@ -32,4 +32,3 @@ updates:
     # Managed by cisagov/skeleton-tf-module
     ignore:
       - dependency-name: "hashicorp/aws"
-
