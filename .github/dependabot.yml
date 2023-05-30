@@ -33,10 +33,3 @@ updates:
     ignore:
       - dependency-name: "hashicorp/aws"
 
-  - package-ecosystem: "terraform"
-    directory: "/examples/basic_usage"
-    schedule:
-      interval: "weekly"
-    # Managed by cisagov/skeleton-tf-module
-    ignore:
-      - dependency-name: "hashicorp/aws"
