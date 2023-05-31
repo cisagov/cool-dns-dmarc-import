@@ -91,7 +91,6 @@ data "aws_iam_policy_document" "provisiondmarcimport" {
       "logs:CreateLogGroup",
       "logs:DescribeLogGroups",
       "logs:DescribeResourcePolicies",
-      "logs:PutResourcePolicy",
     ]
     resources = [
       "*",
@@ -103,15 +102,16 @@ data "aws_iam_policy_document" "provisiondmarcimport" {
       "logs:DeleteResourcePolicy",
       "logs:DeleteRetentionPolicy",
       "logs:ListTagsLogGroup",
+      "logs:PutResourcePolicy",
       "logs:PutRetentionPolicy",
       "logs:TagLogGroup",
       "logs:UntagLogGroup",
     ]
     resources = [
       "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/aes/domains/${var.elasticsearch_domain_name}/application-logs",
-      "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/aes/domains/${var.elasticsearch_domain_name}/application-logs*",
+      "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/aes/domains/${var.elasticsearch_domain_name}/application-logs:*",
       "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/lambda/${var.lambda_function_name}",
-      "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/lambda/${var.lambda_function_name}*",
+      "arn:aws:logs:${var.aws_region}:${local.dns_account_id}:log-group:/aws/lambda/${var.lambda_function_name}:*",
     ]
   }
 
