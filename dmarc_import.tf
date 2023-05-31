@@ -19,6 +19,5 @@ module "dmarc_import" {
   permanent_bucket_name     = var.permanent_bucket_name
   queue_name                = var.queue_name
   rule_set_name             = var.rule_set_name
-  tags                      = var.tags
   temporary_bucket_name     = var.temporary_bucket_name
 }
