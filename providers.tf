@@ -3,26 +3,35 @@
 # used to assume the roles required to access remote state in the
 # Terraform backend.
 provider "aws" {
+  default_tags {
+    tags = var.tags
+  }
   region = var.aws_region
 }
 
 # The provider used to add permissions that allow dmarc-import to be
 # installed.
 provider "aws" {
-  alias  = "dnsprovisionaccount"
-  region = var.aws_region
+  alias = "dnsprovisionaccount"
   assume_role {
     role_arn     = data.terraform_remote_state.dns.outputs.provisionaccount_role.arn
     session_name = local.caller_user_name
   }
+  default_tags {
+    tags = var.tags
+  }
+  region = var.aws_region
 }
 
 # The provider used to lookup account IDs.  See locals.tf.
 provider "aws" {
-  alias  = "organizationsreadonly"
-  region = var.aws_region
+  alias = "organizationsreadonly"
   assume_role {
     role_arn     = data.terraform_remote_state.master.outputs.organizationsreadonly_role.arn
     session_name = local.caller_user_name
   }
+  default_tags {
+    tags = var.tags
+  }
+  region = var.aws_region
 }

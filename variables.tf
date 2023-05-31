@@ -115,12 +115,8 @@ variable "rule_set_name" {
 
 variable "tags" {
   type        = map(string)
-  description = "Tags to apply to all AWS resources created"
-  default = {
-    Team        = "VM Fusion - Development"
-    Application = "COOL - DNS - dmarc-import"
-    Workspace   = "production"
-  }
+  description = "Tags to apply to all AWS resources created."
+  default     = {}
 }
 
 variable "temporary_bucket_name" {
