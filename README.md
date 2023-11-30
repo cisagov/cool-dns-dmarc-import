@@ -5,20 +5,21 @@
 Terraform code to create the necessary resources to run the
 dmarc-import application in the COOL DNS account.
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements ##
 
 | Name | Version |
 |------|---------|
 | terraform | ~> 1.0 |
-| aws | ~> 3.38 |
+| aws | ~> 4.9 |
 
 ## Providers ##
 
 | Name | Version |
 |------|---------|
-| aws | ~> 3.38 |
-| aws.dnsprovisionaccount | ~> 3.38 |
-| aws.organizationsreadonly | ~> 3.38 |
+| aws | ~> 4.9 |
+| aws.dnsprovisionaccount | ~> 4.9 |
+| aws.organizationsreadonly | ~> 4.9 |
 | terraform | n/a |
 
 ## Modules ##
@@ -81,6 +82,7 @@ dmarc-import application in the COOL DNS account.
 | elasticsearchreadonly\_role | IAM role that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database. |
 | elasticsearchreadwrite\_role | IAM role that allows sufficient permissions to read and write to the dmarc-import Elasticsearch database. |
 | provisiondmarcimport\_policy | IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. |
+<!-- END_TF_DOCS -->
 
 ## Notes ##
 
