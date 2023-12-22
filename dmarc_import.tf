@@ -3,7 +3,7 @@
 #-------------------------------------------------------------------------------
 
 module "dmarc_import" {
-  source = "github.com/cisagov/dmarc-import-tf-module"
+  source = "github.com/cisagov/dmarc-import-tf-module?ref=improvement%2Fadd-cognito"
 
   providers = {
     aws = aws.dnsprovisionaccount
