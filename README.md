@@ -59,7 +59,7 @@ dmarc-import application in the COOL DNS account.
 | cognito\_authenticated\_role\_name | The name of the IAM role that grants authenticated access to the Elasticsearch database. | `string` | `"dmarc-import-authenticated"` | no |
 | cognito\_identity\_pool\_name | The name of the Cognito identity pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
 | cognito\_user\_pool\_client\_name | The name of the Cognito user pool client to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
-| cognito\_user\_pool\_domain | The domain to use for the Cognito endpoint. For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth. | `string` | `"dmarc-import"` | no |
+| cognito\_user\_pool\_domain | The domain to use for the Cognito endpoint. For custom domains, this is the fully-qualified domain name, such as "auth.example.com". For Amazon Cognito prefix domains, this is the prefix alone, such as "auth". | `string` | `"dmarc-import"` | no |
 | cognito\_user\_pool\_name | The name of the Cognito user pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
 | cognito\_usernames | A map whose keys are the usernames of each Cognito user and whose values are a map containing supported user attributes.  The only currently-supported attribute is "email" (string).  Example: `{ "firstname1.lastname1" = { "email" = "firstname1.lastname1@foo.gov" }, "firstname2.lastname2" = { "email" = "firstname2.lastname2@foo.gov" } }` | `map(object({ email = string }))` | `{}` | no |
 | cyhy\_account\_id | The ID of the CyHy account. | `string` | n/a | yes |

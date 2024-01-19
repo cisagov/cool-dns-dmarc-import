@@ -41,7 +41,7 @@ variable "cognito_user_pool_client_name" {
 
 variable "cognito_user_pool_domain" {
   default     = "dmarc-import"
-  description = "The domain to use for the Cognito endpoint. For custom domains, this is the fully-qualified domain name, such as auth.example.com. For Amazon Cognito prefix domains, this is the prefix alone, such as auth."
+  description = "The domain to use for the Cognito endpoint. For custom domains, this is the fully-qualified domain name, such as \"auth.example.com\". For Amazon Cognito prefix domains, this is the prefix alone, such as \"auth\"."
   type        = string
 }
 
