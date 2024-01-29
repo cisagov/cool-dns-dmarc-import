@@ -4,6 +4,48 @@
 # ------------------------------------------------------------------------------
 
 data "aws_iam_policy_document" "provisiondmarcimport" {
+  # Permissions necessary to create and manipulate Cognito resources
+  statement {
+    actions = [
+      "cognito-identity:CreateIdentityPool",
+      "cognito-identity:DeleteIdentityPool",
+      "cognito-identity:DescribeIdentityPool",
+      "cognito-identity:GetIdentityPoolRoles",
+      "cognito-identity:ListIdentityPools",
+      "cognito-identity:SetIdentityPoolRoles",
+      "cognito-identity:TagResource",
+      "cognito-identity:UntagResource",
+      "cognito-identity:UpdateIdentityPool",
+      "cognito-idp:AddCustomAttributes",
+      "cognito-idp:AdminCreateUser",
+      "cognito-idp:AdminDeleteUser",
+      "cognito-idp:AdminGetUser",
+      "cognito-idp:AdminUpdateUserAttributes",
+      "cognito-idp:CreateUserPool",
+      "cognito-idp:CreateUserPoolClient",
+      "cognito-idp:CreateUserPoolDomain",
+      "cognito-idp:DeleteUserPool",
+      "cognito-idp:DeleteUserPoolClient",
+      "cognito-idp:DeleteUserPoolDomain",
+      "cognito-idp:DescribeUserPool",
+      "cognito-idp:DescribeUserPoolClient",
+      "cognito-idp:DescribeUserPoolDomain",
+      "cognito-idp:GetUserPoolMfaConfig",
+      "cognito-idp:ListUserPoolClients",
+      "cognito-idp:ListUserPools",
+      "cognito-idp:SetUserPoolMfaConfig",
+      "cognito-idp:TagResource",
+      "cognito-idp:UntagResource",
+      "cognito-idp:UpdateUserPool",
+      "cognito-idp:UpdateUserPoolClient",
+      "cognito-idp:UpdateUserPoolDomain",
+    ]
+
+    resources = [
+      "*"
+    ]
+  }
+
   # Permissions necessary to create and manipulate the Lambda function
   statement {
     actions = [

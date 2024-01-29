@@ -56,6 +56,12 @@ dmarc-import application in the COOL DNS account.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region to communicate with. | `string` | `"us-east-1"` | no |
+| cognito\_authenticated\_role\_name | The name of the IAM role that grants authenticated access to the Elasticsearch database. | `string` | `"dmarc-import-authenticated"` | no |
+| cognito\_identity\_pool\_name | The name of the Cognito identity pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
+| cognito\_user\_pool\_client\_name | The name of the Cognito user pool client to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
+| cognito\_user\_pool\_domain | The domain to use for the Cognito endpoint. For custom domains, this is the fully-qualified domain name, such as "auth.example.com". For Amazon Cognito prefix domains, this is the prefix alone, such as "auth". | `string` | `"dmarc-import"` | no |
+| cognito\_user\_pool\_name | The name of the Cognito user pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
+| cognito\_usernames | A map whose keys are the usernames of each Cognito user and whose values are a map containing supported user attributes.  The only currently-supported attribute is "email" (string).  Example: `{ "firstname1.lastname1" = { "email" = "firstname1.lastname1@foo.gov" }, "firstname2.lastname2" = { "email" = "firstname2.lastname2@foo.gov" } }` | `map(object({ email = string }))` | `{}` | no |
 | cyhy\_account\_id | The ID of the CyHy account. | `string` | n/a | yes |
 | elasticsearch\_domain\_name | The domain name of the Elasticsearch instance. | `string` | `"dmarc-import-elasticsearch"` | no |
 | elasticsearch\_index | The Elasticsearch index to which to write DMARC aggregate report data. | `string` | `"dmarc_aggregate_reports"` | no |
@@ -67,6 +73,7 @@ dmarc-import application in the COOL DNS account.
 | emails | A list of the email addresses at which DMARC aggregate reports are being received. | `list(string)` | ```[ "reports@dmarc.cyber.dhs.gov" ]``` | no |
 | lambda\_function\_name | The name of the dmarc-import Lambda function. | `string` | `"dmarc-import"` | no |
 | lambda\_function\_zip\_file | The location of the zip file for the Lambda function. | `string` | `"../dmarc-import-lambda/dmarc-import.zip"` | no |
+| opensearch\_service\_role\_for\_auth\_name | The name of the IAM role that gives Amazon OpenSearch Service permissions to configure the Amazon Cognito user and identity pools and use them for OpenSearch Dashboards/Kibana authentication. | `string` | `"opensearch-service-cognito-access"` | no |
 | permanent\_bucket\_name | The name of the S3 bucket where the DMARC aggregate report emails are stored permanently. | `string` | `"cool-dmarc-import-permanent"` | no |
 | provisiondmarcimport\_policy\_description | The description to associate with the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. | `string` | `"Allows sufficient permissions to provision the dmarc-import infrastructure."` | no |
 | provisiondmarcimport\_policy\_name | The name to assign the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. | `string` | `"ProvisionDmarcImport"` | no |
