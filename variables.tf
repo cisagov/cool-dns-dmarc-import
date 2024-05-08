@@ -5,8 +5,8 @@
 # ------------------------------------------------------------------------------
 
 variable "cyhy_account_id" {
-  type        = string
   description = "The ID of the CyHy account."
+  type        = string
 }
 
 # ------------------------------------------------------------------------------
@@ -58,53 +58,51 @@ variable "cognito_usernames" {
 }
 
 variable "elasticsearch_domain_name" {
-  type        = string
-  description = "The domain name of the Elasticsearch instance."
   default     = "dmarc-import-elasticsearch"
+  description = "The domain name of the Elasticsearch instance."
+  type        = string
 }
 
 variable "elasticsearch_index" {
-  type        = string
-  description = "The Elasticsearch index to which to write DMARC aggregate report data."
   default     = "dmarc_aggregate_reports"
+  description = "The Elasticsearch index to which to write DMARC aggregate report data."
+  type        = string
 }
 
 variable "elasticsearchreadonly_role_description" {
-  type        = string
-  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
   default     = "Allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
+  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database."
+  type        = string
 }
 
 variable "elasticsearchreadonly_role_name" {
-  type        = string
-  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read (but not write) the to dmarc-import Elasticsearch database."
   default     = "ElasticsearchReadOnly"
+  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read (but not write) the to dmarc-import Elasticsearch database."
+  type        = string
 }
 
 variable "elasticsearchreadwrite_role_description" {
-  type        = string
-  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read and write to the dmarc-import Elasticsearch database."
   default     = "Allows sufficient permissions to read and write to the dmarc-import Elasticsearch database."
+  description = "The description to associate with the IAM role (and policy) that allows sufficient permissions to read and write to the dmarc-import Elasticsearch database."
+  type        = string
 }
 
 variable "elasticsearchreadwrite_role_name" {
-  type        = string
-  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read and write the to dmarc-import Elasticsearch database."
   default     = "ElasticsearchReadWrite"
+  description = "The name to assign the IAM role (and policy) that allows sufficient permissions to read and write the to dmarc-import Elasticsearch database."
+  type        = string
 }
 
 variable "elasticsearch_type" {
-  type        = string
-  description = "The Elasticsearch type corresponding to a DMARC aggregate report."
   default     = "report"
+  description = "The Elasticsearch type corresponding to a DMARC aggregate report."
+  type        = string
 }
 
 variable "emails" {
-  type        = list(string)
+  default     = ["reports@dmarc.cyber.dhs.gov", ]
   description = "A list of the email addresses at which DMARC aggregate reports are being received."
-  default = [
-    "reports@dmarc.cyber.dhs.gov",
-  ]
+  type        = list(string)
 }
 
 variable "opensearch_service_role_for_auth_name" {
@@ -114,55 +112,55 @@ variable "opensearch_service_role_for_auth_name" {
 }
 
 variable "lambda_function_name" {
-  type        = string
-  description = "The name of the dmarc-import Lambda function."
   default     = "dmarc-import"
+  description = "The name of the dmarc-import Lambda function."
+  type        = string
 }
 
 variable "lambda_function_zip_file" {
-  type        = string
-  description = "The location of the zip file for the Lambda function."
   default     = "../dmarc-import-lambda/dmarc-import.zip"
+  description = "The location of the zip file for the Lambda function."
+  type        = string
 }
 
 variable "permanent_bucket_name" {
-  type        = string
-  description = "The name of the S3 bucket where the DMARC aggregate report emails are stored permanently."
   default     = "cool-dmarc-import-permanent"
+  description = "The name of the S3 bucket where the DMARC aggregate report emails are stored permanently."
+  type        = string
 }
 
 variable "provisiondmarcimport_policy_description" {
-  type        = string
-  description = "The description to associate with the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure."
   default     = "Allows sufficient permissions to provision the dmarc-import infrastructure."
+  description = "The description to associate with the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure."
+  type        = string
 }
 
 variable "provisiondmarcimport_policy_name" {
-  type        = string
-  description = "The name to assign the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure."
   default     = "ProvisionDmarcImport"
+  description = "The name to assign the IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure."
+  type        = string
 }
 
 variable "queue_name" {
-  type        = string
-  description = "The name of the SQS queue where events will be sent as DMARC aggregate reports are received."
   default     = "cool-dmarc-import-queue"
+  description = "The name of the SQS queue where events will be sent as DMARC aggregate reports are received."
+  type        = string
 }
 
 variable "rule_set_name" {
-  type        = string
-  description = "The name of the SES rule set that processes DMARC aggregate reports."
   default     = "dmarc-import-rules"
+  description = "The name of the SES rule set that processes DMARC aggregate reports."
+  type        = string
 }
 
 variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created."
   default     = {}
+  description = "Tags to apply to all AWS resources created."
+  type        = map(string)
 }
 
 variable "temporary_bucket_name" {
-  type        = string
-  description = "The name of the S3 bucket where the DMARC aggregate report emails are stored temporarily (until processed)."
   default     = "cool-dmarc-import-temporary"
+  description = "The name of the S3 bucket where the DMARC aggregate report emails are stored temporarily (until processed)."
+  type        = string
 }

@@ -51,7 +51,6 @@ data "aws_iam_policy_document" "provisiondmarcimport" {
     actions = [
       "lambda:*",
     ]
-
     resources = [
       "arn:aws:lambda:${var.aws_region}:${local.dns_account_id}:function:${var.lambda_function_name}",
     ]
