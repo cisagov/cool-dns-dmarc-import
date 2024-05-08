@@ -55,7 +55,7 @@ dmarc-import application in the COOL DNS account.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| aws\_region | The AWS region to communicate with. | `string` | `"us-east-1"` | no |
+| aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
 | cognito\_authenticated\_role\_name | The name of the IAM role that grants authenticated access to the Elasticsearch database. | `string` | `"dmarc-import-authenticated"` | no |
 | cognito\_identity\_pool\_name | The name of the Cognito identity pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
 | cognito\_user\_pool\_client\_name | The name of the Cognito user pool client to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
