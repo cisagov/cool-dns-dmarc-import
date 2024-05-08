@@ -16,9 +16,9 @@ variable "cyhy_account_id" {
 # ------------------------------------------------------------------------------
 
 variable "aws_region" {
-  type        = string
-  description = "The AWS region to communicate with."
   default     = "us-east-1"
+  description = "The AWS region to deploy into (e.g. us-east-1)."
+  type        = string
 }
 
 variable "cognito_authenticated_role_name" {
