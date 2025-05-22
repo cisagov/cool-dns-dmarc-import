@@ -66,7 +66,7 @@ variable "cognito_user_pool_name" {
 
 variable "cognito_usernames" {
   default     = {}
-  description = "A map whose keys are the usernames of each Cognito user and whose values are a map containing supported user attributes.  The only currently-supported attribute is \"email\" (string).  Example: { \"firstname1.lastname1\" = { \"email\" = \"firstname1.lastname1@foo.gov\" }, \"firstname2.lastname2\" = { \"email\" = \"firstname2.lastname2@foo.gov\" } }"
+  description = "A map whose keys are the usernames of each Cognito user and whose values are a map containing supported user attributes.  The only currently-supported attribute is \"email\" (string).  Example: `{ \"firstname1.lastname1\" = { \"email\" = \"firstname1.lastname1@foo.gov\" }, \"firstname2.lastname2\" = { \"email\" = \"firstname2.lastname2@foo.gov\" } }`"
   nullable    = false
   type        = map(object({ email = string }))
 }
