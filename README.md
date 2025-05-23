@@ -81,6 +81,7 @@ dmarc-import application in the COOL DNS account.
 | rule\_set\_name | The name of the SES rule set that processes DMARC aggregate reports. | `string` | `"dmarc-import-rules"` | no |
 | tags | Tags to apply to all AWS resources created. | `map(string)` | `{}` | no |
 | temporary\_bucket\_name | The name of the S3 bucket where the DMARC aggregate report emails are stored temporarily (until processed). | `string` | `"cool-dmarc-import-temporary"` | no |
+| terraform\_state\_bucket | The name of the S3 bucket where Terraform state is stored. | `string` | n/a | yes |
 
 ## Outputs ##
 
