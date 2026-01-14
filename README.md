@@ -1,6 +1,8 @@
 # cool-dns-dmarc-import #
 
 [![GitHub Build Status](https://github.com/cisagov/cool-dns-dmarc-import/workflows/build/badge.svg)](https://github.com/cisagov/cool-dns-dmarc-import/actions)
+[![License](https://img.shields.io/github/license/cisagov/cool-dns-dmarc-import)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/cool-dns-dmarc-import/workflows/CodeQL/badge.svg)](https://github.com/cisagov/cool-dns-dmarc-import/actions/workflows/codeql-analysis.yml)
 
 Terraform code to create the necessary resources to run the
 dmarc-import application in the COOL DNS account.
