@@ -13,6 +13,7 @@ data "aws_iam_policy_document" "assume_role_doc" {
     principals {
       identifiers = [
         local.users_account_id,
+        var.cyhy_account_id,
       ]
       type = "AWS"
     }
