@@ -11,14 +11,14 @@ dmarc-import application in the COOL DNS account.
 ## Requirements ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | ~> 1.1 |
 | aws | ~> 6.7 |
 
 ## Providers ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | aws | ~> 6.7 |
 | aws.dnsprovisionaccount | ~> 6.7 |
 | aws.organizationsreadonly | ~> 6.7 |
@@ -27,13 +27,13 @@ dmarc-import application in the COOL DNS account.
 ## Modules ##
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | dmarc\_import | github.com/cisagov/dmarc-import-tf-module | n/a |
 
 ## Resources ##
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_iam_policy.elasticsearchreadonly_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.elasticsearchreadwrite_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.provisiondmarcimport](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
@@ -55,7 +55,7 @@ dmarc-import application in the COOL DNS account.
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | aws\_region | The AWS region to deploy into (e.g. us-east-1). | `string` | `"us-east-1"` | no |
 | cognito\_authenticated\_role\_name | The name of the IAM role that grants authenticated access to the Elasticsearch database. | `string` | `"dmarc-import-authenticated"` | no |
 | cognito\_identity\_pool\_name | The name of the Cognito identity pool to use for access to the Elasticsearch database. | `string` | `"dmarc-import"` | no |
@@ -87,7 +87,7 @@ dmarc-import application in the COOL DNS account.
 ## Outputs ##
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | elasticsearchreadonly\_role | IAM role that allows sufficient permissions to read (but not write) to the dmarc-import Elasticsearch database. |
 | elasticsearchreadwrite\_role | IAM role that allows sufficient permissions to read and write to the dmarc-import Elasticsearch database. |
 | provisiondmarcimport\_policy | IAM policy that allows sufficient permissions to provision the dmarc-import infrastructure. |
